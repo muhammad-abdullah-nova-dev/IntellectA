@@ -1,0 +1,38 @@
+# Render Blueprint — optional one-click deploy
+# Dashboard: New → Blueprint → connect repo, or create Web Service manually.
+
+services:
+  - type: web
+    name: intellecta-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn intellecta.main:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT --workers 2 --timeout 120
+    healthCheckPath: /api/v2/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: PYTHONPATH
+        value: src
+      - key: APP_ENV
+        value: production
+      - key: GROQ_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: UPSTASH_REDIS_REST_URL
+        sync: false
+      - key: UPSTASH_REDIS_REST_TOKEN
+        sync: false
+      - key: MEM0_API_KEY
+        sync: false

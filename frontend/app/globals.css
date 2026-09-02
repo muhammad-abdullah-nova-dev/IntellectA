@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 98%;
+    --foreground: 224 30% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 30% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 30% 12%;
+    --primary: 250 84% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 94%;
+    --secondary-foreground: 224 30% 18%;
+    --muted: 220 16% 94%;
+    --muted-foreground: 220 10% 46%;
+    --accent: 250 100% 97%;
+    --accent-foreground: 250 60% 40%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 250 84% 54%;
+    --radius: 0.75rem;
+    --brand: 250 84% 54%;
+    --brand-2: 172 66% 40%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 224 20% 30%;
+    --sidebar-primary: 250 84% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 250 100% 97%;
+    --sidebar-accent-foreground: 250 60% 35%;
+    --sidebar-border: 220 14% 92%;
+    --sidebar-ring: 250 84% 54%;
+  }
+
+  .dark {
+    --background: 224 32% 7%;
+    --foreground: 210 20% 96%;
+    --card: 224 28% 10%;
+    --card-foreground: 210 20% 96%;
+    --popover: 224 28% 10%;
+    --popover-foreground: 210 20% 96%;
+    --primary: 250 90% 68%;
+    --primary-foreground: 224 32% 8%;
+    --secondary: 224 20% 14%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 224 20% 14%;
+    --muted-foreground: 220 12% 58%;
+    --accent: 250 30% 16%;
+    --accent-foreground: 250 90% 75%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 224 18% 16%;
+    --input: 224 18% 16%;
+    --ring: 250 90% 68%;
+    --brand: 250 90% 68%;
+    --brand-2: 172 55% 45%;
+    --sidebar-background: 224 30% 8%;
+    --sidebar-foreground: 210 15% 88%;
+    --sidebar-primary: 250 90% 68%;
+    --sidebar-primary-foreground: 224 32% 8%;
+    --sidebar-accent: 224 22% 12%;
+    --sidebar-accent-foreground: 210 15% 92%;
+    --sidebar-border: 224 18% 14%;
+    --sidebar-ring: 250 90% 68%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .mesh-bg {
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% -10%, hsl(250 84% 54% / 0.12), transparent 50%),
+      radial-gradient(ellipse 60% 50% at 90% 0%, hsl(172 66% 40% / 0.1), transparent 45%),
+      radial-gradient(ellipse 50% 40% at 50% 100%, hsl(250 84% 54% / 0.06), transparent 50%);
+  }
+
+  .dark .mesh-bg {
+    background-image:
+      radial-gradient(ellipse 80% 60% at 10% -10%, hsl(250 90% 68% / 0.15), transparent 50%),
+      radial-gradient(ellipse 60% 50% at 90% 0%, hsl(172 55% 45% / 0.08), transparent 45%),
+      radial-gradient(ellipse 50% 40% at 50% 100%, hsl(250 90% 68% / 0.06), transparent 50%);
+  }
+
+  .glass-panel {
+    @apply border border-border/60 bg-card/80 shadow-xl shadow-black/[0.03] backdrop-blur-xl dark:shadow-black/20;
+  }
+
+  .brand-gradient {
+    @apply bg-gradient-to-r from-violet-600 via-indigo-600 to-violet-600;
+  }
+
+  .brand-gradient-text {
+    @apply bg-gradient-to-r from-violet-600 via-indigo-500 to-teal-500 bg-clip-text text-transparent;
+  }
+
+  .chat-bubble-user {
+    @apply rounded-2xl rounded-br-md bg-primary text-primary-foreground shadow-md shadow-primary/20;
+  }
+
+  .chat-bubble-assistant {
+    @apply rounded-2xl rounded-bl-md border border-border/70 bg-card shadow-sm;
+  }
+
+  .subject-pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-card/90 px-3 py-1 text-xs font-medium text-muted-foreground shadow-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-violet-600 dark:text-violet-400;
+  }
+
+  .section-heading {
+    @apply text-balance text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+
+  .section-sub {
+    @apply mx-auto mt-4 max-w-2xl text-center text-base leading-relaxed text-muted-foreground;
+  }
+}
+
+@keyframes testimonial-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes testimonial-marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes trust-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 5s ease infinite;
+}
+
+.animate-testimonial-marquee {
+  animation: testimonial-marquee 45s linear infinite;
+}
+
+.animate-testimonial-marquee-reverse {
+  animation: testimonial-marquee-reverse 50s linear infinite;
+}
+
+.animate-trust-marquee {
+  animation: trust-marquee 35s linear infinite;
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--foreground)) 0%,
+    hsl(var(--primary)) 50%,
+    hsl(var(--foreground)) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.katex-error {
+  color: hsl(var(--foreground)) !important;
+}
+
+.marquee-viewport:hover .animate-testimonial-marquee,
+.marquee-viewport:hover .animate-testimonial-marquee-reverse {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-gradient-shift,
+  .animate-testimonial-marquee,
+  .animate-testimonial-marquee-reverse,
+  .animate-trust-marquee,
+  .animate-float-gentle,
+  .shimmer-text {
+    animation: none;
+  }
+}

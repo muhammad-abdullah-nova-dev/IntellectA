@@ -1,0 +1,13 @@
+[project]
+name = "intellecta-v2"
+version = "2.0.0"
+description = "IntellectA v2 — Agentic AI Tutor backend"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,11 @@
+{
+  "name": "intellecta-root",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,green \"cd backend && PYTHONPATH=src uvicorn intellecta.main:app --reload --port 8000\" \"cd frontend && npm run dev\"",
+    "setup:frontend": "npm --prefix frontend install"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}

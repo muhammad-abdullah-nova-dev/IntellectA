@@ -1,0 +1,52 @@
+{
+  "name": "intellecta",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "dev:clean": "bash -c 'lsof -ti:3000 | xargs kill -9 2>/dev/null || true; rm -rf .next && next dev -p 3000'",
+    "build": "next build",
+    "build:clean": "rm -rf .next && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.11",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@react-oauth/google": "^0.13.5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.16",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "framer-motion": "^11.0.0",
+    "katex": "^0.17.0",
+    "lucide-react": "^0.400.0",
+    "next": "14.2.5",
+    "next-themes": "^0.2.1",
+    "postcss": "^8.4.31",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-markdown": "^9.0.1",
+    "rehype-katex": "^7.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-math": "^6.0.0",
+    "tailwind-merge": "^2.0.0",
+    "tailwindcss": "^3.4.1",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "typescript": "^5"
+  }
+}
