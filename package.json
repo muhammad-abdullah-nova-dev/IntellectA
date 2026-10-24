@@ -2,8 +2,11 @@
   "name": "intellecta-root",
   "private": true,
   "scripts": {
-    "dev": "concurrently -n backend,frontend -c blue,green \"cd backend && PYTHONPATH=src uvicorn intellecta.main:app --reload --port 8000\" \"cd frontend && npm run dev\"",
-    "setup:frontend": "npm --prefix frontend install"
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && (venv\\Scripts\\python -m uvicorn intellecta.main:app --reload --port 8000 || python3 -m uvicorn intellecta.main:app --reload --port 8000 || uvicorn intellecta.main:app --reload --port 8000)",
+    "dev:frontend": "cd frontend && npm run dev",
+    "setup:frontend": "npm --prefix frontend install",
+    "setup:backend": "cd backend && python -m venv venv && .\\venv\\Scripts\\pip install -r requirements.txt && .\\venv\\Scripts\\pip install -e ."
   },
   "devDependencies": {
     "concurrently": "^9.0.0"

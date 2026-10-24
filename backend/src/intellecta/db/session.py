@@ -17,17 +17,23 @@ def _prepare_asyncpg_url(database_url: str) -> tuple[str, dict]:
     Strip sslmode from the URL and pass SSL via connect_args instead (Neon requires SSL).
     """
     parsed = urlparse(database_url)
+    scheme = parsed.scheme
+    if scheme in ("postgresql", "postgres"):
+        scheme = "postgresql+asyncpg"
+
     query = parse_qs(parsed.query)
     connect_args: dict = {}
 
     sslmode = query.pop("sslmode", [None])[0]
+    query.pop("channel_binding", None)
+
     if sslmode in ("require", "verify-ca", "verify-full", "prefer"):
         connect_args["ssl"] = True
-    elif parsed.hostname and parsed.hostname.endswith(".neon.tech"):
+    elif parsed.hostname and (".neon.tech" in parsed.hostname or ".pooler.neon.tech" in parsed.hostname):
         connect_args["ssl"] = True
 
     clean_query = urlencode({k: v[0] for k, v in query.items() if v})
-    clean_url = urlunparse(parsed._replace(query=clean_query))
+    clean_url = urlunparse(parsed._replace(scheme=scheme, query=clean_query))
     return clean_url, connect_args
 
 
