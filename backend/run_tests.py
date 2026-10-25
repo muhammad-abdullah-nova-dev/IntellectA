@@ -1,4 +1,4 @@
-"""Small runner for the 3062 test suites.
+"""Small runner for the test suites (members 3062 and 3097).
 
 Usage (from the backend folder):
     python run_tests.py            -> shows the list of suites
@@ -16,6 +16,9 @@ SUITES = {
     "auth": ["-m", "auth"],
     "assessment": ["-m", "assessment"],
     "memory": ["-m", "memory"],
+    "config": ["-m", "config"],
+    "subjects": ["-m", "subjects"],
+    "routing": ["-m", "routing"],
     "data": ["-m", "data_driven"],
     "security": ["-m", "security"],
     "fast": ["-m", "not slow"],
