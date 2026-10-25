@@ -1,0 +1,7 @@
+test_id,description,token
+3062-CSV-TOKEN-01,empty text,
+3062-CSV-TOKEN-02,plain text,not-a-jwt
+3062-CSV-TOKEN-03,only dots,..
+3062-CSV-TOKEN-04,three fake parts,abc.def.ghi
+3062-CSV-TOKEN-05,bearer word left in,Bearer abc.def.ghi
+3062-CSV-TOKEN-06,spaces only,   
