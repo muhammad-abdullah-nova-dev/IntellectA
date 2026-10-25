@@ -1,0 +1,8 @@
+test_id,cors_origins,expected_count,first_origin
+3097-CSV-CORS-01,http://localhost:3000,1,http://localhost:3000
+3097-CSV-CORS-02,"a.com,b.com",2,a.com
+3097-CSV-CORS-03," a.com , b.com ",2,a.com
+3097-CSV-CORS-04,"",0,
+3097-CSV-CORS-05,"a.com,",1,a.com
+3097-CSV-CORS-06,",,,",0,
+3097-CSV-CORS-07,"a.com,b.com,c.com,d.com,e.com",5,a.com

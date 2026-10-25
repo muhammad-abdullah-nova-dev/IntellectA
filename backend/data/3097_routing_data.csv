@@ -1,0 +1,13 @@
+test_id,intent,in_scope,subject,expected
+3097-CSV-ROUTE-01,learn,True,physics,agent_physics
+3097-CSV-ROUTE-02,learn,True,mathematics,agent_mathematics
+3097-CSV-ROUTE-03,learn,True,economics,agent_economics
+3097-CSV-ROUTE-04,clarify,True,history,agent_history
+3097-CSV-ROUTE-05,quiz,True,physics,evaluator
+3097-CSV-ROUTE-06,evaluate_answer,True,biology,evaluator
+3097-CSV-ROUTE-07,quiz,False,physics,scope_guard
+3097-CSV-ROUTE-08,learn,False,out_of_scope,scope_guard
+3097-CSV-ROUTE-09,learn,True,cooking,agent_mathematics
+3097-CSV-ROUTE-10,learn,True,,agent_mathematics
+3097-CSV-ROUTE-11,,True,chemistry,agent_chemistry
+3097-CSV-ROUTE-12,,,,agent_mathematics
